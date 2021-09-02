@@ -87,7 +87,7 @@ function addemployees() {
     let emp4 = new Manager(002, 'GR', '2010-02-02', 35, "Product Manager");
     emp4.addSubordinates(emp1.id);
 
-    let emp5 = new Manager(002, 'Nirav', '2020-01-02', 25, "Hiring Manager");
+    let emp5 = new Manager(006, 'Nirav', '2020-01-02', 25, "Hiring Manager");
     emp5.addSubordinates(emp2.id);
     emp5.addSubordinates(emp3.id);
 
@@ -143,4 +143,31 @@ function listManagersAndSubordinatelist(employees) {
 console.log("Managers :: ");
 console.log(listManagersAndSubordinatelist(employees));
 
-//add prototype 
+var Asset = function() {
+    this.allot=true;
+  };
+  Asset.prototype.checkAllotment = function() {
+   return this.allot ? "Allotted" : "Not allotted"; 
+  }
+  
+  
+  Asset_Monitor = function(id, allot) {
+    Asset.call(this);
+    this.id= id;
+    this.allot= allot;
+    console.log("Alloting Asset_Monitor for Emp ID:: "+id )
+  };
+  
+  Asset_Monitor.prototype = Object.create(Asset.prototype);
+  Asset_Monitor.prototype.constructor = Asset_Monitor;
+  
+  
+  employees.forEach(function(employee) {
+  
+    if(employee.hasOwnProperty("role") && employee.role.indexOf('Manager') != -1){
+      var monitor_allocate1 = new Asset_Monitor(employee.id,true);
+      console.log(monitor_allocate1.checkAllotment());
+  
+    }  
+  });
+  
