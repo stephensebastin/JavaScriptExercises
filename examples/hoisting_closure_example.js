@@ -27,7 +27,7 @@ console.log("Closure example");
 //Closure
 // create a function that activates the inner closure when we need.
 //creating pain function for car, and it is called after payment is made
-function car (paintColor) {
+function car (paintColor) { 
   return function paint() {
     console.log("Car color is :: " +paintColor+" now");
   }
@@ -59,3 +59,47 @@ function hoistingExample() {
 
 
 hoistingExample();
+
+const students = [{"name":"Kumar","credits":"10"},{"name":"Krish","credits":"9"},{"name":"Tim","credits":"6"},{"name":"Steve","credits":"8"}];
+function higherOrderFunctionExampleWithArray(studentsList) {
+//higher order fucntions
+
+var firstClassStudents = studentsList.filter(function(student) {
+  return (student.credits >=8)? true:false;
+});
+
+console.log(firstClassStudents);
+
+}
+
+higherOrderFunctionExampleWithArray(students);
+
+
+
+// function showName(name){
+//   return `Hi!! ${name} `;
+// }
+
+// function conveyMessage(show,message,name){
+//      console.log(`${showName(name)} ${message}`);
+// }
+
+// conveyMessage(showName,'Welcome onboard.. ','Jacob');
+// conveyMessage(showName,'Start exploring the office','Jacob');
+
+
+//Higher order function
+function higherOrderFunctionExample() {
+
+var convey =  function(name){
+  return function(msg){
+      console.log(`Hi!! ${name}, ${msg}`);
+  }
+}
+
+let conveyMessage = convey('Jacob');
+conveyMessage("Welcome onboard...")
+conveyMessage('Start exploring the office','Jacob');
+
+}
+higherOrderFunctionExample();
