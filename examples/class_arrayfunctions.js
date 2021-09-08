@@ -151,21 +151,22 @@ var Asset = function() {
   }
   
   
-  Asset_Monitor = function(id, allot) {
+  AssetMonitor = function(id, allot) {
     Asset.call(this);
     this.id= id;
     this.allot= allot;
-    console.log("Alloting Asset_Monitor for Emp ID:: "+id )
+    console.log("Alloting AssetMonitor for Emp ID:: "+id )
   };
   
-  Asset_Monitor.prototype = Object.create(Asset.prototype);
-  Asset_Monitor.prototype.constructor = Asset_Monitor;
-  
+  AssetMonitor.prototype = Object.create(Asset.prototype);
+  //if we call AssetMonitor.prototype.constructor, it would point to Asset instead of AssetMonitor
+  //now changing that into 
+  AssetMonitor.prototype.constructor = AssetMonitor;  
   
   employees.forEach(function(employee) {
   
     if(employee.hasOwnProperty("role") && employee.role.indexOf('Manager') != -1){
-      var monitor_allocate1 = new Asset_Monitor(employee.id,true);
+      var monitor_allocate1 = new AssetMonitor(employee.id,true);
       console.log(monitor_allocate1.checkAllotment());
   
     }  
