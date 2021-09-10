@@ -39,8 +39,9 @@ if(err != undefined && err != null) {
 });
 
 // this is the promisified version
-/*var promisifiedRead = Promise.promisify(fs.readFile);
-promisifiedRead('/Users/stephensebastin/Downloads/work/javascript/studyPurpose/promiseBluebirdtesddt.html')
+var promisifiedRead = Promise.promisify(fs.readFile);
+//invalid file
+promisifiedRead('/Users/stephensebastin/Downloads/work/javascript/studyPurpose/promiseBluebirdtesddt.html') 
     .then(function(buffer) {
         if(buffer.toString() != undefined){
             //console.log('fs.readFile: ' + buffer.toString());
@@ -49,17 +50,17 @@ promisifiedRead('/Users/stephensebastin/Downloads/work/javascript/studyPurpose/p
        // console.log('promisified readFile: ' + buffer.toString());
     }).catch(function (error){
 
-        console.log('promisified readFile'+ "   Error Occurred");
+        console.log('promisified readFile'+ "   Error Occurred :: "+error.message);
     });
-    */
+    
 
     fs.readFileAsync('/Users/stephensebastin/Downloads/work/javascript/studyPurpose/promiseBluebirdtest.html').then(function(buffer) {
         if(buffer.toString() != undefined){
             //console.log('fs.readFile: ' + buffer.toString());
-            console.log('promisified readFile: ' +" Read Success");
+            console.log('promisified readFile with promisifyAll: ' +" Read Success");
         }
        // console.log('promisified readFile: ' + buffer.toString());
     }).catch(function (error){
 
-        console.log('promisified readFile'+ "   Error Occurred");
+        console.log('promisified readFile with promisifyAll'+ "   Error Occurred");
     });
