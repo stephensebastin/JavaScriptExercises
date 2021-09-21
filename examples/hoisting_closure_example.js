@@ -32,8 +32,10 @@ displayStateTN.displayCity= displayCity;
 
 }
 
+
 displayStateTN("101");
 displayStateTN.displayCity("101");
+
 
 
 
