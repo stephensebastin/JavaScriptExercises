@@ -10,8 +10,6 @@ var logging = function(date) {
 
 var logModulewithDate = logging(new Date());
 
-
-
 // example scope 
 var country = "India"; //global scope
 let logUserIdwithModule = logModulewithDate( "Scope In JavaScript");
