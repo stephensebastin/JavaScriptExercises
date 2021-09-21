@@ -132,8 +132,6 @@ var convey =  function(name){
 let conveyMessage = convey('Jacob');
 conveyMessage("Welcome onboard...")
 conveyMessage('Start exploring the office','Jacob');
-
-
 }
 higherOrderFunctionExample();
 logUserIdwithModule("1004");
